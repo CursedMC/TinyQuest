@@ -5,36 +5,37 @@
 		"id": "${id}",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
-			"description": "A short description of your mod.",
+			"name": "${name}",
+			"description": "A tiny adventure mod with a new dimension full of lore. Will you uncover the secret of LeskMinos? A new story awaits… ",
 			"contributors": {
-				"Me!": "Owner"
+				"Owner": "CursedMC",
+				"Developer": "Sylv"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/CursedMC/quilt-kotlin-template-mod/issues",
-				"sources": "https://github.com/CursedMC/quilt-kotlin-template-mod"
+				"homepage": "https://sylv.gay/",
+				"issues": "https://github.com/CursedMC/TinyQuest/issues",
+				"sources": "https://github.com/CursedMC/TinyQuest"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/${id}/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "dev.cursedmc.example_mod.ExampleMod"
+			"init": "gay.sylv.tinyquest.TinyQuestMod"
 		},
 		"depends": [
 			{
 				"id": "quilt_loader",
-				"versions": ">=0.17.0-"
+				"versions": ">=0.18.0-"
 			},
 			{
 				"id": "quilted_fabric_api",
-				"versions": ">=4.0.0-"
+				"versions": ">=6.0.0-"
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.19"
+				"versions": ">=1.19.4"
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "${id}.mixins.json"
 }

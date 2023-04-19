@@ -1,6 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
+import nl.javadude.gradle.plugins.license.License
+
 plugins {
+	id("com.github.hierynomus.license").version("0.16.1")
 	id("org.jetbrains.kotlin.jvm").version("1.8.10")
 	id("org.quiltmc.quilt-mappings-on-loom") version "4.2.1"
 	id("org.quiltmc.loom") version "1.1.+"
@@ -10,6 +13,7 @@ plugins {
 val modVersion: String by project
 val mavenGroup: String by project
 val modId: String by project
+val modName: String by project
 
 base.archivesBaseName = modId
 version = modVersion
@@ -79,6 +83,7 @@ val modImplementationInclude by configurations.register("modImplementationInclud
 
 configurations {
 	modImplementationInclude
+	modImplementationInclude.setExtendsFrom(mutableListOf(configurations.modImplementation.get(), configurations.include.get()))
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
@@ -126,7 +131,7 @@ tasks.processResources {
 	inputs.property("version", version)
 	
 	filesMatching("quilt.mod.json") {
-		expand("group" to mavenGroup, "id" to modId, "version" to version)
+		expand("group" to mavenGroup, "id" to modId, "version" to version, "name" to modName)
 	}
 	
 	filesMatching("**/lang/*.json") {
@@ -159,6 +164,15 @@ tasks.withType<AbstractArchiveTask> {
 	from("LICENSE") {
 		rename { "${it}_${modId}" }
 	}
+}
+
+tasks.build {
+	dependsOn(tasks.license)
+}
+
+tasks.withType<License> {
+	header = file("LHEADER")
+	exclude("**/*.json")
 }
 
 // Configure the maven publication
