@@ -121,7 +121,11 @@ dependencies {
 //	modImplementation("maven.modrinth", "yqh", "0.1.2")
 	
 	// must-have libraries
-	modCompileOnly("mcp.mobius.waila", "wthit-api", "quilt-5.13.4")
+	modCompileOnly(libs.wthit.api)
+	modCompileOnly(libs.emi.api)
+	
+	// runtime mods
+	modLocalRuntime(libs.emi.api)
 	
 //	add(sourceSets.main.get().getTaskName("mod", JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME), modImplementationInclude)
 //	add(net.fabricmc.loom.util.Constants.Configurations.INCLUDE, modImplementationInclude)
@@ -161,9 +165,8 @@ java {
 
 // If you plan to use a different file for the license, don't forget to change the file name here!
 tasks.withType<AbstractArchiveTask> {
-	from("LICENSE") {
-		rename { "${it}_${modId}" }
-	}
+	from("COPYING", "COPYING.LESSER").rename { "${it}_${modId}" }
+	from("*.aseprite", "*.ase", "*.pal").exclude()
 }
 
 tasks.build {

@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory
 
 class TinyQuestMod : ModInitializer {
 	override fun onInitialize(mod: ModContainer) {
-		
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name())
 	}
 	
