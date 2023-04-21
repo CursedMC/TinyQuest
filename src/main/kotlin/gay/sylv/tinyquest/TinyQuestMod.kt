@@ -16,14 +16,23 @@
  */
 package gay.sylv.tinyquest
 
+import gay.sylv.tinyquest.block.TinyBlocks
+import gay.sylv.tinyquest.item.TinyItems
+import gay.sylv.tinyquest.item.group.ItemGroups
+import net.minecraft.util.Identifier
 import org.quiltmc.loader.api.ModContainer
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
+internal fun id(path: String) = Identifier("tinyquest:$path")
+
 class TinyQuestMod : ModInitializer {
 	override fun onInitialize(mod: ModContainer) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name())
+		TinyBlocks.initialize()
+		TinyItems.initialize()
+		ItemGroups.initialize()
 	}
 	
 	companion object {

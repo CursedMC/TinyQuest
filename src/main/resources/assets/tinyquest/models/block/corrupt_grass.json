@@ -1,0 +1,7 @@
+{
+	"parent": "tinyquest:block/vibrant_grass",
+	"textures": {
+		"top": "tinyquest:block/corrupt_grass_top",
+		"side": "tinyquest:block/corrupt_grass_side"
+	}
+}

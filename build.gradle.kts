@@ -1,12 +1,15 @@
 @file:Suppress("UnstableApiUsage")
 
 import nl.javadude.gradle.plugins.license.License
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
 	id("com.github.hierynomus.license").version("0.16.1")
 	id("org.jetbrains.kotlin.jvm").version("1.8.10")
 	id("org.quiltmc.quilt-mappings-on-loom") version "4.2.1"
-	id("org.quiltmc.loom") version "1.1.+"
+	alias(libs.plugins.quilt.loom)
 	`maven-publish`
 }
 
@@ -94,7 +97,10 @@ dependencies {
 		mappings("org.quiltmc:quilt-mappings:${libs.versions.minecraft.get()}+build.${libs.versions.quilt.mappings.get()}:intermediary-v2")
 	})
 	modImplementation(libs.quilt.loader)
-	modImplementation(libs.quilt.lang.kotlin)
+	modImplementation(libs.quilt.lang.kotlin) {
+		exclude(group = "org.quiltmc.qsl.item")
+		exclude(group = "org.quiltmc.qsl.entity")
+	}
 	
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
@@ -147,6 +153,11 @@ tasks.withType<JavaCompile> {
 	options.encoding = "UTF-8"
 	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
 	options.release.set(17)
+}
+
+tasks.withType<KotlinCompile> {
+	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
+	compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
 }
 
 java {

@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"root=false": { "model":  "tinyquest:block/survin" },
+		"root=true": { "model": "tinyquest:block/survin_root" }
+	}
+}
