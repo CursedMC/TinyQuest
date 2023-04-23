@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"tinyquest:rich_dirt",
+		"tinyquest:vibrant_grass",
+		"tinyquest:corrupt_grass",
+		"tinyquest:frozen_grass"
+	]
+}

@@ -13,7 +13,7 @@ object TinyItems : Initializable {
 	val VIBRANT_GRASS: BlockItem = Registry.register(Registries.ITEM, id("vibrant_grass"), BlockItem(TinyBlocks.VIBRANT_GRASS, QuiltItemSettings()))
 	val CORRUPT_GRASS: BlockItem = Registry.register(Registries.ITEM, id("corrupt_grass"), BlockItem(TinyBlocks.CORRUPT_GRASS, QuiltItemSettings()))
 	val FROZEN_GRASS: BlockItem = Registry.register(Registries.ITEM, id("frozen_grass"), BlockItem(TinyBlocks.FROZEN_GRASS, QuiltItemSettings()))
-	val SEA_SURVIN: BlockItem = Registry.register(Registries.ITEM, id("sea_survin"), BlockItem(TinyBlocks.SURVIN, QuiltItemSettings()))
+	val SURVIN: BlockItem = Registry.register(Registries.ITEM, id("survin"), BlockItem(TinyBlocks.SURVIN, QuiltItemSettings()))
 	val VIBRANT_FLOWERS: BlockItem = Registry.register(Registries.ITEM, id("vibrant_flowers"), BlockItem(TinyBlocks.VIBRANT_FLOWERS, QuiltItemSettings()))
 	
 	override fun initialize() {

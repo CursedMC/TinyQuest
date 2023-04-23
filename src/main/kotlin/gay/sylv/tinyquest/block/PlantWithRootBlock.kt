@@ -1,10 +1,13 @@
 package gay.sylv.tinyquest.block
 
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.PlantBlock
 import net.minecraft.item.ItemPlacementContext
+import net.minecraft.state.StateManager
 import net.minecraft.state.property.BooleanProperty
 import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.Vec3i
 import net.minecraft.world.BlockView
 
 /**
@@ -19,13 +22,21 @@ class PlantWithRootBlock(settings: Settings) : PlantBlock(settings) {
 		return super.canPlantOnTop(floor, world, pos) || floor?.isOf(this.asBlock())!!
 	}
 	
+	// -- BlockState --
+	
+	override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
+		builder?.add(ROOT)
+	}
+	
 	override fun getPlacementState(ctx: ItemPlacementContext?): BlockState? {
-		if (!ctx?.world?.getBlockState(BlockPos(ctx.hitPos?.x?.toInt()!!, ctx.hitPos?.y?.toInt()!!, ctx.hitPos?.z?.toInt()!!))?.isOf(this)!!) {
-			return defaultState.with(ROOT, true)
+		return if (!ctx?.world?.getBlockState(ctx.blockPos.subtract(Vec3i(0, 1, 0)))?.isOf(this.asBlock())!!) {
+			defaultState.with(ROOT, true)
 		} else {
-			return defaultState
+			defaultState
 		}
 	}
+	
+	// -- END BlockState --
 	
 	companion object {
 		val ROOT: BooleanProperty = BooleanProperty.of("root")

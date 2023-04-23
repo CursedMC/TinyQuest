@@ -1,15 +1,15 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tinyquest:block/stem",
-		"1": "tinyquest:block/head",
-		"2": "tinyquest:block/red_petal",
-		"3": "tinyquest:block/yellow_petal",
-		"4": "tinyquest:block/blue_petal",
-		"5": "tinyquest:block/violet_petal",
-		"6": "tinyquest:block/orange_petal",
-		"7": "tinyquest:block/green_petal",
-		"particle": "tinyquest:block/stem"
+		"0": "tinyquest:block/vibrant_flowers/stem",
+		"1": "tinyquest:block/vibrant_flowers/head",
+		"2": "tinyquest:block/vibrant_flowers/red_petal",
+		"3": "tinyquest:block/vibrant_flowers/yellow_petal",
+		"4": "tinyquest:block/vibrant_flowers/blue_petal",
+		"5": "tinyquest:block/vibrant_flowers/violet_petal",
+		"6": "tinyquest:block/vibrant_flowers/orange_petal",
+		"7": "tinyquest:block/vibrant_flowers/green_petal",
+		"particle": "tinyquest:block/vibrant_flowers/stem"
 	},
 	"elements": [
 		{
@@ -731,7 +731,43 @@
 			}
 		}
 	],
-	"display": {},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [43.5, 0, 0],
+			"translation": [0, 4, 3.25],
+			"scale": [0.48633, 0.48633, 0.48633]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [43.5, 0, 0],
+			"translation": [0, 4, 3.25],
+			"scale": [0.48633, 0.48633, 0.48633]
+		},
+		"firstperson_righthand": {
+			"rotation": [42, 0, 0],
+			"translation": [0, 4, 1.75],
+			"scale": [0.37695, 0.37695, 0.37695]
+		},
+		"firstperson_lefthand": {
+			"rotation": [42, 0, 0],
+			"translation": [0, 4, 1.75],
+			"scale": [0.37695, 0.37695, 0.37695]
+		},
+		"ground": {
+			"translation": [0, 4.5, 0]
+		},
+		"gui": {
+			"rotation": [33.5, 0, 0],
+			"translation": [0, 2.5, 0]
+		},
+		"head": {
+			"translation": [0, 14.25, 0],
+			"scale": [0.90625, 1, 0.91406]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -7]
+		}
+	},
 	"groups": [
 		{
 			"name": "flower",

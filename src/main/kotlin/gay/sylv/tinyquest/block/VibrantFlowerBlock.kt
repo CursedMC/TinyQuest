@@ -15,6 +15,6 @@ class VibrantFlowerBlock(settings: Settings) : FlowerBlock(StatusEffects.REGENER
 	}
 	
 	companion object {
-		private val SHAPE = createCuboidShape(2.0, 0.0, 2.0, 14.0, 12.0, 14.0)
+		private val SHAPE = createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0)
 	}
 }

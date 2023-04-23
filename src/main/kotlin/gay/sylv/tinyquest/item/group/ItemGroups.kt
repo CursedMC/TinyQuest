@@ -1,7 +1,6 @@
 package gay.sylv.tinyquest.item.group
 
 import gay.sylv.tinyquest.Initializable
-import gay.sylv.tinyquest.block.TinyBlocks
 import gay.sylv.tinyquest.id
 import gay.sylv.tinyquest.item.TinyItems
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
@@ -16,7 +15,7 @@ object ItemGroups : Initializable {
 			collector.addItem(TinyItems.VIBRANT_GRASS)
 			collector.addItem(TinyItems.CORRUPT_GRASS)
 			collector.addItem(TinyItems.FROZEN_GRASS)
-			collector.addItem(TinyItems.SEA_SURVIN)
+			collector.addItem(TinyItems.SURVIN)
 			collector.addItem(TinyItems.VIBRANT_FLOWERS)
 		}
 		.build()
