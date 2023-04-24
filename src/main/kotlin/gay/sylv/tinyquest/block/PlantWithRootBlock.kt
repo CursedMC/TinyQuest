@@ -13,7 +13,7 @@ import net.minecraft.world.BlockView
 /**
  * A plant block that has a different texture for the base block of the plant.
  */
-class PlantWithRootBlock(settings: Settings) : PlantBlock(settings) {
+open class PlantWithRootBlock(settings: Settings) : PlantBlock(settings) {
 	init {
 		defaultState = defaultState.with(ROOT, false)
 	}

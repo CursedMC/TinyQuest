@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 
-object ItemGroups : Initializable {
+object TinyGroups : Initializable {
 	val TINY_QUEST: ItemGroup = FabricItemGroup.builder(id("tiny_quest"))
 		.icon { return@icon ItemStack(TinyItems.VIBRANT_GRASS) }
 		.entries { _, collector ->
@@ -16,6 +16,7 @@ object ItemGroups : Initializable {
 			collector.addItem(TinyItems.CORRUPT_GRASS)
 			collector.addItem(TinyItems.FROZEN_GRASS)
 			collector.addItem(TinyItems.SURVIN)
+			collector.addItem(TinyItems.SURVIN_FULL_ROOT)
 			collector.addItem(TinyItems.VIBRANT_FLOWERS)
 		}
 		.build()

@@ -18,13 +18,15 @@ object TinyBlocks : Initializable {
 	val SURVIN: Block = Registry.register(
 		Registries.BLOCK,
 		id("survin"),
-		PlantWithRootBlock(QuiltBlockSettings
+		SurvinBlock(QuiltBlockSettings
 			.copyOf(Blocks.SEAGRASS)
 			.nonOpaque())
 	)
+	val SURVIN_FULL_ROOT: Block = Registry.register(Registries.BLOCK, id("survin_full_root"), SurvinBlock(QuiltBlockSettings.copyOf(SURVIN)))
 	val VIBRANT_FLOWERS: VibrantFlowerBlock = Registry.register(Registries.BLOCK, id("vibrant_flowers"), VibrantFlowerBlock(QuiltBlockSettings.copyOf(Blocks.CORNFLOWER)))
 	
 	override fun initialize() {
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), SURVIN)
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), SURVIN_FULL_ROOT)
 	}
 }
