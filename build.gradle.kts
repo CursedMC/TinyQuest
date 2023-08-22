@@ -42,11 +42,6 @@ repositories {
 	}
 	
 	maven {
-		name = "auoeke Maven"
-		url = uri("https://maven.auoeke.net")
-	}
-	
-	maven {
 		url = uri("https://maven.bai.lol")
 	}
 	
@@ -107,15 +102,14 @@ dependencies {
 	modImplementation(libs.quilted.fabric.api)
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 	
-//	modImplementationInclude(libs.core.qsl.base)
-//	modImplementationInclude(libs.core.networking)
-//	modImplementationInclude(libs.core.registry)
-//
-//	modImplementationInclude(libs.block.entity)
-//	modImplementationInclude(libs.block.extensions)
-//
-//	modImplementationInclude(libs.item.group)
-//	modImplementationInclude(libs.item.setting)
+	modImplementation(libs.core.qsl.base)
+	modImplementation(libs.core.networking)
+	modImplementation(libs.core.registry)
+
+	modImplementation(libs.block.entity)
+	modImplementation(libs.block.extensions)
+
+	modImplementation(libs.item.setting)
 	
 	// cursed library collection
 //	implementation(include("net.auoeke", "reflect", "5.+"))

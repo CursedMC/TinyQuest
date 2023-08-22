@@ -7,7 +7,7 @@ quilt_mappings = "5"
 quilt_loader = "0.18.5"
 
 quilted_fabric_api = "6.0.0-beta.2+0.76.0-1.19.4"
-qsl = "5.0.0-beta.1+1.19.4"
+qsl = "5.0.0-beta.10+1.19.4"
 
 quilt_lang_kotlin = "1.1.1+kt.1.8.10+flk.1.9.2"
 
@@ -27,7 +27,6 @@ core_registry = { module = "org.quiltmc.qsl.core:registry", version.ref = "qsl" 
 core_networking = { module = "org.quiltmc.qsl.core:networking", version.ref = "qsl" }
 block_entity = { module = "org.quiltmc.qsl.block:block_entity", version.ref = "qsl" }
 block_extensions = { module = "org.quiltmc.qsl.block:block_extensions", version.ref = "qsl" }
-item_group = { module = "org.quiltmc.qsl.item:item_group", version.ref = "qsl" }
 item_setting = { module = "org.quiltmc.qsl.item:item_setting", version.ref = "qsl" }
 
 # Mod Libraries
