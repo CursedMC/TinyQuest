@@ -1,19 +1,19 @@
 [versions]
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
-kotlin = "1.8.10"
+kotlin = "1.9.0"
 
-minecraft = "1.19.4"
-quilt_mappings = "5"
-quilt_loader = "0.18.5"
+minecraft = "1.20.1"
+quilt_mappings = "23"
+quilt_loader = "0.19.5"
 
-quilted_fabric_api = "6.0.0-beta.2+0.76.0-1.19.4"
-qsl = "5.0.0-beta.10+1.19.4"
+quilted_fabric_api = "7.1.2+0.87.0-1.20.1"
+qsl = "6.1.1+1.20.1"
 
-quilt_lang_kotlin = "1.1.1+kt.1.8.10+flk.1.9.2"
+quilt_lang_kotlin = "2.1.2+kt.1.9.0+flk.1.10.8"
 
 # Mod Library Versions
-emi = "0.7.3+1.19.4"
-wthit = "quilt-7.2.2"
+emi = "1.0.19+1.20.1"
+wthit = "quilt-8.3.1"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -30,7 +30,7 @@ block_extensions = { module = "org.quiltmc.qsl.block:block_extensions", version.
 item_setting = { module = "org.quiltmc.qsl.item:item_setting", version.ref = "qsl" }
 
 # Mod Libraries
-emi_api = { module = "dev.emi:emi", version.ref = "emi", group = "api" }
+emi_api = { module = "dev.emi:emi-fabric", version.ref = "emi", group = "api" }
 wthit_api = { module = "mcp.mobius.waila:wthit-api", version.ref = "wthit" }
 quilt_lang_kotlin = { module = "org.quiltmc.quilt-kotlin-libraries:quilt-kotlin-libraries", version.ref = "quilt_lang_kotlin" }
 

@@ -26,7 +26,9 @@ import org.quiltmc.qsl.base.api.entrypoint.ModInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-internal fun id(path: String) = Identifier("tinyquest", path)
+const val MOD_ID = "tinyquest"
+
+internal fun id(path: String) = Identifier(MOD_ID, path)
 
 class TinyQuestMod : ModInitializer {
 	override fun onInitialize(mod: ModContainer) {

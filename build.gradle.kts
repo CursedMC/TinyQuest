@@ -54,25 +54,8 @@ repositories {
 	}
 	
 	maven {
-		url = uri("https://repo.minelittlepony-mod.com/maven/release")
-	}
-	
-	maven {
-		name = "Gegy"
-		url = uri("https://maven.gegy.dev")
-	}
-	
-	maven {
-		url = uri("https://nexus.velocitypowered.com/repository/maven-public/")
-	}
-	
-	maven {
 		name = "QuiltMC Snapshot"
 		url = uri("https://maven.quiltmc.org/repository/snapshot")
-	}
-	
-	maven {
-		url = uri("https://maven.ryanliptak.com/")
 	}
 }
 
@@ -92,24 +75,21 @@ dependencies {
 		mappings("org.quiltmc:quilt-mappings:${libs.versions.minecraft.get()}+build.${libs.versions.quilt.mappings.get()}:intermediary-v2")
 	})
 	modImplementation(libs.quilt.loader)
-	modImplementation(libs.quilt.lang.kotlin) {
-		exclude(group = "org.quiltmc.qsl.item")
-		exclude(group = "org.quiltmc.qsl.entity")
-	}
+	modImplementation(libs.quilt.lang.kotlin)
 	
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
-	modImplementation(libs.quilted.fabric.api)
+	modImplementation(libs.bundles.quilted.fabric.api)
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 	
-	modImplementation(libs.core.qsl.base)
-	modImplementation(libs.core.networking)
-	modImplementation(libs.core.registry)
-
-	modImplementation(libs.block.entity)
-	modImplementation(libs.block.extensions)
-
-	modImplementation(libs.item.setting)
+//	modImplementation(libs.core.qsl.base)
+//	modImplementation(libs.core.networking)
+//	modImplementation(libs.core.registry)
+//
+//	modImplementation(libs.block.entity)
+//	modImplementation(libs.block.extensions)
+//
+//	modImplementation(libs.item.setting)
 	
 	// cursed library collection
 //	implementation(include("net.auoeke", "reflect", "5.+"))
@@ -121,11 +101,20 @@ dependencies {
 //	modImplementation("maven.modrinth", "yqh", "0.1.2")
 	
 	// must-have libraries
-	modCompileOnly(libs.wthit.api)
-	modCompileOnly(libs.emi.api)
+	modCompileOnly(libs.wthit.api) {
+		exclude("net.fabricmc.fabric-api")
+		exclude("net.fabricmc")
+	}
+	modCompileOnly(libs.emi.api) {
+		exclude("net.fabricmc.fabric-api")
+		exclude("net.fabricmc")
+	}
 	
 	// runtime mods
-	modLocalRuntime(libs.emi.api)
+	modLocalRuntime(libs.emi.api) {
+		exclude("net.fabricmc.fabric-api")
+		exclude("net.fabricmc")
+	}
 	
 //	add(sourceSets.main.get().getTaskName("mod", JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME), modImplementationInclude)
 //	add(net.fabricmc.loom.util.Constants.Configurations.INCLUDE, modImplementationInclude)
