@@ -16,21 +16,39 @@
  */
 package gay.sylv.tinyquest.block
 
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.FlowerBlock
 import net.minecraft.block.ShapeContext
 import net.minecraft.entity.effect.StatusEffects
+import net.minecraft.item.ItemPlacementContext
+import net.minecraft.state.StateManager
+import net.minecraft.state.property.IntProperty
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.shape.VoxelShape
 import net.minecraft.world.BlockView
 
 class VibrantFlowerBlock(settings: Settings) : FlowerBlock(StatusEffects.REGENERATION, 12, settings) {
+	init {
+		defaultState = defaultState.with(VARIANT, 0)
+	}
+	
+	override fun getPlacementState(ctx: ItemPlacementContext): BlockState {
+		return defaultState.with(VARIANT, ctx.world.random.nextInt(3))
+	}
+	
 	@Deprecated("mojang")
 	override fun getOutlineShape(state: BlockState?, world: BlockView?, pos: BlockPos?, context: ShapeContext?): VoxelShape {
 		return SHAPE
 	}
 	
+	override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
+		builder.add(VARIANT)
+	}
+	
 	companion object {
+		val VARIANT = IntProperty.of("variant", 0, 3)
+		
 		private val SHAPE = createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0)
 	}
 }
