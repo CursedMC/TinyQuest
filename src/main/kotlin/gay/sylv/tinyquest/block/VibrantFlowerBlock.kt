@@ -34,7 +34,7 @@ class VibrantFlowerBlock(settings: Settings) : FlowerBlock(StatusEffects.REGENER
 	}
 	
 	override fun getPlacementState(ctx: ItemPlacementContext): BlockState {
-		return defaultState.with(VARIANT, ctx.world.random.nextInt(3))
+		return defaultState.with(VARIANT, ctx.world.random.nextInt(4))
 	}
 	
 	@Deprecated("mojang")
