@@ -36,6 +36,9 @@ object TinyGroups : Initializable {
 			collector.addItem(TinyItems.VIBRANT_GRASS)
 			collector.addItem(TinyItems.CORRUPT_GRASS)
 			collector.addItem(TinyItems.FROZEN_GRASS)
+			collector.addItem(TinyItems.RICH_SAND)
+			collector.addItem(TinyItems.MINERALS)
+			
 			collector.addItem(TinyItems.SURVIN)
 			collector.addItem(TinyItems.SURVIN_FULL_ROOT)
 			collector.addItem(TinyItems.VIBRANT_FLOWERS)
