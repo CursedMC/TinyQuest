@@ -109,6 +109,10 @@ dependencies {
 		exclude("net.fabricmc.fabric-api")
 		exclude("net.fabricmc")
 	}
+	modImplementation(include("com.terraformersmc.terraform-api", "terraform-wood-api-v1", "7.0.+")) {
+		exclude("net.fabricmc.fabric-api")
+		exclude("net.fabricmc")
+	}
 	
 	// runtime mods
 	modLocalRuntime(libs.emi.api) {

@@ -18,6 +18,7 @@ package gay.sylv.tinyquest
 
 import gay.sylv.tinyquest.block.TinyBlocks
 import gay.sylv.tinyquest.block.tags.TinyBlockTags
+import gay.sylv.tinyquest.datagen.DataGenerator
 import gay.sylv.tinyquest.item.TinyItems
 import gay.sylv.tinyquest.item.group.TinyGroups
 import net.minecraft.util.Identifier
@@ -36,6 +37,9 @@ class TinyQuestMod : ModInitializer {
 		
 		// Tags
 		TinyBlockTags.initialize()
+		
+		// Datagen
+		DataGenerator.initialize()
 		
 		// Blocks & Items
 		TinyBlocks.initialize()

@@ -47,7 +47,7 @@ class VibrantFlowerBlock(settings: Settings) : FlowerBlock(StatusEffects.REGENER
 	}
 	
 	companion object {
-		val VARIANT = IntProperty.of("variant", 0, 3)
+		val VARIANT: IntProperty = IntProperty.of("variant", 0, 3)
 		
 		private val SHAPE = createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0)
 	}

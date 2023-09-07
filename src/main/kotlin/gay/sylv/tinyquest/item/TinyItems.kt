@@ -20,55 +20,50 @@ import gay.sylv.tinyquest.Initializable
 import gay.sylv.tinyquest.block.TinyBlocks
 import gay.sylv.tinyquest.id
 import net.minecraft.item.BlockItem
+import net.minecraft.item.Item
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings
 
 object TinyItems : Initializable {
 	// natural blocks
-	val RICH_DIRT: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("rich_dirt"),
+	val RICH_DIRT: BlockItem = registerItem(
+		"rich_dirt",
 		BlockItem(
 			TinyBlocks.RICH_DIRT,
 			QuiltItemSettings()
 		)
 	)
-	val VIBRANT_GRASS: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("vibrant_grass"),
+	val VIBRANT_GRASS: BlockItem = registerItem(
+		"vibrant_grass",
 		BlockItem(
 			TinyBlocks.VIBRANT_GRASS,
 			QuiltItemSettings()
 		)
 	)
-	val CORRUPT_GRASS: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("corrupt_grass"),
+	val CORRUPT_GRASS: BlockItem = registerItem(
+		"corrupt_grass",
 		BlockItem(
 			TinyBlocks.CORRUPT_GRASS,
 			QuiltItemSettings()
 		)
 	)
-	val FROZEN_GRASS: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("frozen_grass"),
+	val FROZEN_GRASS: BlockItem = registerItem(
+		"frozen_grass",
 		BlockItem(
 			TinyBlocks.FROZEN_GRASS,
 			QuiltItemSettings()
 		)
 	)
-	val RICH_SAND: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("rich_sand"),
+	val RICH_SAND: BlockItem = registerItem(
+		"rich_sand",
 		BlockItem(
 			TinyBlocks.RICH_SAND,
 			QuiltItemSettings()
 		)
 	)
-	val MINERALS: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("minerals"),
+	val MINERALS: BlockItem = registerItem(
+		"minerals",
 		BlockItem(
 			TinyBlocks.MINERALS,
 			QuiltItemSettings()
@@ -76,25 +71,22 @@ object TinyItems : Initializable {
 	)
 	
 	// vegetals
-	val SURVIN: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("survin"),
+	val SURVIN: BlockItem = registerItem(
+		"survin",
 		BlockItem(
 			TinyBlocks.SURVIN,
 			QuiltItemSettings()
 		)
 	)
-	val SURVIN_FULL_ROOT: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("survin_full_root"),
+	val SURVIN_FULL_ROOT: BlockItem = registerItem(
+		"survin_full_root",
 		BlockItem(
 			TinyBlocks.SURVIN_FULL_ROOT,
 			QuiltItemSettings()
 		)
 	)
-	val VIBRANT_FLOWERS: BlockItem = Registry.register(
-		Registries.ITEM,
-		id("vibrant_flowers"),
+	val VIBRANT_FLOWERS: BlockItem = registerItem(
+		"vibrant_flowers",
 		BlockItem(
 			TinyBlocks.VIBRANT_FLOWERS,
 			QuiltItemSettings()
@@ -102,5 +94,13 @@ object TinyItems : Initializable {
 	)
 	
 	override fun initialize() {
+	}
+	
+	internal fun <I: Item> registerItem(id: String, item: I): I {
+		return Registry.register(
+			Registries.ITEM,
+			id(id),
+			item
+		)
 	}
 }

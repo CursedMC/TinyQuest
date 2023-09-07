@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "tinyquest:block/%1$s_log",
+		"side": "tinyquest:block/%1$s_log"
+	}
+}

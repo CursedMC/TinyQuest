@@ -1,0 +1,16 @@
+{
+	"variants": {
+		"axis=x": {
+			"model": "tinyquest:block/%1$s_horizontal",
+			"x": 90,
+			"y": 90
+		},
+		"axis=y": {
+			"model": "tinyquest:block/%1$s"
+		},
+		"axis=z": {
+			"model": "tinyquest:block/%1$s_horizontal",
+			"x": 90
+		}
+	}
+}

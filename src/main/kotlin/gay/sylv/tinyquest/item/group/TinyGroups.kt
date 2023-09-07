@@ -18,6 +18,7 @@ package gay.sylv.tinyquest.item.group
 
 import gay.sylv.tinyquest.Initializable
 import gay.sylv.tinyquest.MOD_ID
+import gay.sylv.tinyquest.datagen.WoodType
 import gay.sylv.tinyquest.id
 import gay.sylv.tinyquest.item.TinyItems
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
@@ -38,6 +39,8 @@ object TinyGroups : Initializable {
 			collector.addItem(TinyItems.FROZEN_GRASS)
 			collector.addItem(TinyItems.RICH_SAND)
 			collector.addItem(TinyItems.MINERALS)
+			
+			WoodType.addAllStacksToCollector(collector)
 			
 			collector.addItem(TinyItems.SURVIN)
 			collector.addItem(TinyItems.SURVIN_FULL_ROOT)

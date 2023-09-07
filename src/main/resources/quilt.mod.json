@@ -8,19 +8,20 @@
 			"name": "${name}",
 			"description": "A tiny adventure mod with a new dimension full of lore. Will you uncover the secret of LeskMinos? A new story awaits… ",
 			"contributors": {
-				"Owner": "CursedMC",
+				"Owner": "Vulpixel",
 				"Developer": "Sylv"
 			},
 			"contact": {
 				"homepage": "https://sylv.gay/",
-				"issues": "https://github.com/CursedMC/TinyQuest/issues",
-				"sources": "https://github.com/CursedMC/TinyQuest"
+				"issues": "https://github.com/VulpixelMC/TinyQuest/issues",
+				"sources": "https://github.com/VulpixelMC/TinyQuest"
 			},
 			"icon": "assets/${id}/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "gay.sylv.tinyquest.TinyQuestMod"
+			"init": "gay.sylv.tinyquest.TinyQuestMod",
+			"client_init": "gay.sylv.tinyquest.client.TinyQuestClient"
 		},
 		"depends": [
 			{

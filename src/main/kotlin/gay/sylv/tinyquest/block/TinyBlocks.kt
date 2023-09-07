@@ -29,50 +29,45 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap
 
 object TinyBlocks : Initializable {
 	// natural blocks
-	val RICH_DIRT: Block = Registry.register(
-		Registries.BLOCK,
-		id("rich_dirt"),
+	val RICH_DIRT: Block = registerBlock(
+		"rich_dirt",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.DIRT)
 		)
 	)
-	val VIBRANT_GRASS: Block = Registry.register(
-		Registries.BLOCK,
-		id("vibrant_grass"),
+	val VIBRANT_GRASS: Block = registerBlock(
+		"vibrant_grass",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.GRASS_BLOCK)
 		)
 	)
-	val CORRUPT_GRASS: Block = Registry.register(
-		Registries.BLOCK,
-		id("corrupt_grass"),
+	val CORRUPT_GRASS: Block = registerBlock(
+		"corrupt_grass",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.GRASS_BLOCK)
 				.mapColor(MapColor.PURPLE_TERRACOTTA)
 		)
 	)
-	val FROZEN_GRASS: Block = Registry.register(
-		Registries.BLOCK,
-		id("frozen_grass"),
+	val FROZEN_GRASS: Block = registerBlock(
+		"frozen_grass",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.GRASS_BLOCK)
+				.mapColor(MapColor.SNOW)
 		)
 	)
-	val RICH_SAND: Block = Registry.register(
-		Registries.BLOCK,
-		id("rich_sand"),
+	val RICH_SAND: Block = registerBlock(
+		"rich_sand",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.SAND)
 		)
 	)
-	val MINERALS: Block = Registry.register(
-		Registries.BLOCK,
-		id("minerals"),
+	val MINERALS: Block = registerBlock(
+		"minerals",
 		Block(
 			QuiltBlockSettings
 				.copyOf(Blocks.STONE)
@@ -80,9 +75,8 @@ object TinyBlocks : Initializable {
 	)
 	
 	// vegetals
-	val SURVIN: Block = Registry.register(
-		Registries.BLOCK,
-		id("survin"),
+	val SURVIN: Block = registerBlock(
+		"survin",
 		SurvinBlock(
 			QuiltBlockSettings
 				.copyOf(Blocks.SEAGRASS)
@@ -90,18 +84,16 @@ object TinyBlocks : Initializable {
 				.nonOpaque()
 		)
 	)
-	val SURVIN_FULL_ROOT: Block = Registry.register(
-		Registries.BLOCK,
-		id("survin_full_root"),
+	val SURVIN_FULL_ROOT: Block = registerBlock(
+		"survin_full_root",
 		SurvinRootBlock(
 			QuiltBlockSettings
 				.copyOf(SURVIN)
 				.mapColor(MapColor.PURPLE)
 		)
 	)
-	val VIBRANT_FLOWERS: VibrantFlowerBlock = Registry.register(
-		Registries.BLOCK,
-		id("vibrant_flowers"),
+	val VIBRANT_FLOWERS: VibrantFlowerBlock = registerBlock(
+		"vibrant_flowers",
 		VibrantFlowerBlock(
 			QuiltBlockSettings
 				.copyOf(Blocks.CORNFLOWER)
@@ -111,5 +103,13 @@ object TinyBlocks : Initializable {
 	override fun initialize() {
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), SURVIN)
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), SURVIN_FULL_ROOT)
+	}
+	
+	internal fun <B: Block> registerBlock(id: String, block: B): B {
+		return Registry.register(
+			Registries.BLOCK,
+			id(id),
+			block
+		)
 	}
 }
