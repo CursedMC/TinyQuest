@@ -35,11 +35,13 @@ abstract class DataGenerator {
 		}
 		
 		protected fun putResource(path: String, datagenPath: String, vararg args: Any) {
-			putResource(path, getResource(datagenPath, args))
+			putResource(path, getResource(datagenPath, *args))
 		}
 		
 		@Suppress("MemberVisibilityCanBePrivate")
 		protected fun putResource(path: String, content: String) {
+			TinyQuestMod.LOGGER.info("${this.path}/$path")
+			TinyQuestMod.LOGGER.info(content)
 			PACK.putResource(ResourceType.CLIENT_RESOURCES, pathId(path), content.encodeToByteArray())
 		}
 		
@@ -52,7 +54,7 @@ abstract class DataGenerator {
 		}
 	}
 	
-	abstract class BlockstateDataMill(context: ResourcePackRegistrationContext) : DataMill(context, "blockstates")
+	abstract class BlockstateMill(context: ResourcePackRegistrationContext) : DataMill(context, "blockstates")
 	
 	abstract class BlockModelMill(context: ResourcePackRegistrationContext) : DataMill(context, "models/block")
 	
@@ -74,7 +76,6 @@ abstract class DataGenerator {
 		init {
 			ResourceLoader.get(ResourceType.CLIENT_RESOURCES).registerDefaultResourcePackEvent.register { context ->
 				REGISTRY.forEach {
-					TinyQuestMod.LOGGER.info("on register pack :3")
 					it.onRegisterPack(context)
 				}
 				

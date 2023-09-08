@@ -9,7 +9,6 @@ import net.minecraft.block.MapColor
 import net.minecraft.block.PillarBlock
 import net.minecraft.block.enums.NoteBlockInstrument
 import net.minecraft.item.BlockItem
-import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemGroup.ItemStackCollector
 import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
@@ -78,6 +77,8 @@ class WoodType(val name: String, woodColor: MapColor, barkColor: MapColor, sound
 	override fun onRegisterPack(context: ResourcePackRegistrationContext) {
 		val blockModelMill = BlockModelMill(context, this)
 		blockModelMill.addToPack(PACK)
+		val blockstateMill = BlockstateMill(context, this)
+		blockstateMill.addToPack(PACK)
 	}
 	
 	override fun addStacksToCollector(collector: ItemStackCollector) {
@@ -86,6 +87,21 @@ class WoodType(val name: String, woodColor: MapColor, barkColor: MapColor, sound
 		collector.addItem(strippedLogItem)
 		collector.addItem(strippedWoodItem)
 		collector.addItem(planksItem)
+	}
+	
+	class BlockstateMill(context: ResourcePackRegistrationContext, private val woodType: WoodType) : DataGenerator.BlockstateMill(context) {
+		override fun addToPack(pack: InMemoryResourcePack) {
+			// log
+			putResource("${woodType.name}_${woodType.logName}.json", "log.json", "${woodType.name}_${woodType.logName}")
+			// wood
+			putResource("${woodType.name}_${woodType.woodName}.json", "wood.json", "${woodType.name}_${woodType.woodName}")
+			// stripped log
+			putResource("stripped_${woodType.name}_${woodType.logName}.json", "log.json", "stripped_${woodType.name}_${woodType.logName}")
+			// stripped wood
+			putResource("stripped_${woodType.name}_${woodType.woodName}.json", "wood.json", "stripped_${woodType.name}_${woodType.woodName}")
+			// planks
+			putResource("${woodType.name}_${woodType.planksName}.json", "empty.json", "${woodType.name}_${woodType.planksName}")
+		}
 	}
 	
 	class BlockModelMill(context: ResourcePackRegistrationContext, private val woodType: WoodType) : DataGenerator.BlockModelMill(context) {
